@@ -1,8 +1,11 @@
 let sistemaVendas = () => {
 
     let opcao
+    let vetVendedores = []
+    let vetVendas = []
+
     do {
-        opcao = Number(prompt(`Informe: \n1. Cadastrar Vendedor \n2. Cadastrar Venda \n3. Sair`))
+        opcao = Number(prompt(`Informe: \n1. Cadastrar Vendedor \n2. Cadastrar Venda \n3. Consultar Vendedores \n4. Sair`))
         switch(opcao){
             case 1: let objeto = {
                         codigo: Number(prompt(`Informe o código:`)),
@@ -26,7 +29,25 @@ let sistemaVendas = () => {
                         alert(`Opa!!! Já existe um vendedor cadastrado com esse código!`)
                     }
                     break
-            case 2:
+            case 2: let objeto = {
+                codigo: Number(prompt(`Informe o Código do Vendedor:`)),
+                mes: Number(prompt(`Informe o Mês da Venda:`)),
+                valor: Number(prompt(`Informe o valor da Venda:`)) 
+            }
+            let achou = false 
+            for(let i=0; i<vetVendas.length; i++){
+                if((vetVendas[i].codigo == objeto.codigo) && (vetVendas[i].mes == objeto.mes)){
+                    achou = true // achei - não posso cadastrar a venda
+                }
+            }
+            if (!achou){
+                // adiciona o objeto no vetor
+                vetVendas.push(objeto)
+            }
+            else {
+                alert(`Já existe vendas com esse vendedor nesse mês`)
+            }
+            console.log(vetVendas)
                     break
             case 3: alert(`O programa será encerrado`)
                     break
@@ -35,4 +56,7 @@ let sistemaVendas = () => {
 
     }
     while (opcao != 3)
+
+
 }
+
