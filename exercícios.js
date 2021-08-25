@@ -92,7 +92,7 @@ let gerenciaRedesSociais = () => {
         }
       }
       // terminou de soma os posts de uma rede social
-      console.log(`A qtde de post da rede social ${vetorRedesSociais[i].codigo} é ${vetor[i]}`)
+      alert(`A qtde de post da rede social ${vetorRedesSociais[i].codigo} é ${vetor[i]}`)
   }
   // Exe3) o usuário informa  o login do usuário, e o programa retorna quantos posts ele fez
   // solicitar usuário informar login
@@ -132,5 +132,5 @@ let gerenciaRedesSociais = () => {
         })
     }
   }
-
+  alert(vetorUsuariosPosts)
 }
