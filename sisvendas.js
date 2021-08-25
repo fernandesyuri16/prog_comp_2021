@@ -29,20 +29,20 @@ let sistemaVendas = () => {
                         alert(`Opa!!! Já existe um vendedor cadastrado com esse código!`)
                     }
                     break
-            case 2: let objeto = {
+            case 2: let objeto1 = {
                 codigo: Number(prompt(`Informe o Código do Vendedor:`)),
                 mes: Number(prompt(`Informe o Mês da Venda:`)),
                 valor: Number(prompt(`Informe o valor da Venda:`)) 
             }
-            let achou = false 
+            let achou1 = false 
             for(let i=0; i<vetVendas.length; i++){
-                if((vetVendas[i].codigo == objeto.codigo) && (vetVendas[i].mes == objeto.mes)){
-                    achou = true // achei - não posso cadastrar a venda
+                if((vetVendas[i].codigo == objeto1.codigo) && (vetVendas[i].mes == objeto1.mes)){
+                    achou1 = true // achei - não posso cadastrar a venda
                 }
             }
-            if (!achou){
+            if (!achou1){
                 // adiciona o objeto no vetor
-                vetVendas.push(objeto)
+                vetVendas.push(objeto1)
             }
             else {
                 alert(`Já existe vendas com esse vendedor nesse mês`)
