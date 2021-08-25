@@ -132,5 +132,5 @@ let gerenciaRedesSociais = () => {
         })
     }
   }
-  alert(vetorUsuariosPosts)
+  console.log(vetorUsuariosPosts)
 }
