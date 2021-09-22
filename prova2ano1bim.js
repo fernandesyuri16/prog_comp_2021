@@ -69,3 +69,4 @@ let consultaPais = (vetViagens, pais) => {
     }
     alert(`O menor valor de Viagem para este país custa R$ ${menorPreco},00`)
 }
+
