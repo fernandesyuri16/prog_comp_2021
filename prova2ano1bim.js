@@ -60,10 +60,10 @@ let consultaViagem = (vetViagens, tipo) => {
 }
 
 let consultaPais = (vetViagens, pais) => {
+    let menorPreco = 0
     for(let i = 0; i < vetViagens.length; i++){
         if(vetViagens[i].pais == pais) {
             if (vetViagens[i].preco < menorPreco)
-            let menorPreco = 0
             let menorPreco = vetViagens[i].preco // trás o menor preço
         }
     }
