@@ -64,7 +64,7 @@ let consultaPais = (vetViagens, pais) => {
     for(let i = 0; i < vetViagens.length; i++){
         if(vetViagens[i].pais == pais) {
             if (vetViagens[i].preco < menorPreco)
-            let menorPreco = vetViagens[i].preco // trás o menor preço
+            menorPreco = vetViagens[i].preco // trás o menor preço
         }
     }
     alert(`O menor valor de Viagem para este país custa R$ ${menorPreco},00`)
