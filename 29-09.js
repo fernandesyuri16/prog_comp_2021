@@ -26,3 +26,5 @@ let sistemaNotas = () => {
         console.log(`A média do aluno ${i+1} é ${soma/4}`)
     }
 }
+
+
