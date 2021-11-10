@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Filmes </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
+    <script>
+        function chamaAPI(){
+            // recuperar CEP
+            let title = document.getElementById("title").value
+            // cria objeto de requisição
+            let req = new XMLHttpRequest()
+            //faz a requisição
+            let apikey = 'ad8ee08d'
+            req.open('GET', `http://www.omdbapi.com/?apikey=${apikey}&t=${title}`, true)
+            //tratar a resposta
+            req.onload = function(){
+                //recupera conteudo e transforma em JSON
+                let conteudo = JSON.parse(this.response)
+                // colocar os dados nas caixas de texto
+                document.getElementById("Title").value = conteudo.Title
+                document.getElementById("Year").value = conteudo.Year
+                document.getElementById("imdbRating").value = conteudo.imdbRating
+                document.getElementById("imdbVotes").value = conteudo.imdbVotes
+                document.getElementById("Poster").src = conteudo.Poster
+            }
+            // envia a requisição
+            req.send()
+        }
+    </script>
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"> MARCA </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#conteudo">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="conteudo">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="index.html"> Home </a>
+                        </li>
+                        <li class="nav-item"> 
+                                <a class="nav-link" href="paciente.html"> Paciente </a>
+                        </li>
+                        <li class="nav-item"> 
+                                <a class="nav-link" href="medico.html"> Médicos </a>
+                        <li class="nav-item"> 
+                                <a class="nav-link" href="filmes.html"> Filmes </a>
+                        </li>
+                        <li class="nav-item"> 
+                                <a class="nav-link" href="sobre.html"> Sobre </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2> Filmes </h2>
+            <form>
+                <!-- a vantagem de lidar com o conceito de rem é que ele vale 16px
+                isso facilita a responsividade, pois o dispositivo gráfico varia de qtde pxs -->
+                <div class="mb-3">
+                    <label class="form-label" for="title"> Título </label>
+                    <input type="text" id="title" class="form-control" placeholder="Informe o Titulo do Filme em inglês"/>
+                    <button onClick="chamaAPI()" type="button" class="btn btn-info"> Busca </button>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Title"> Title </label> 
+                    <input type="text" id="Title" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Year"> Year </label> 
+                    <input type="text" id="Year" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="imdbRating"> imdbRating </label> 
+                    <input type="text" id="imdbRating" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="imdbVotes"> imdbVotes </label> 
+                    <input type="text" id="imdbVotes" class="form-control"/>
+                </div>
+                <div class="mb-3">
+                    <img id="Poster" class = "img-fluid" />
+                </div>
+
+                <button type="submit" class="btn btn-primary"> Enviar </button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <h8> Desenvolvido pela turma do 2o. semestre de Computação do Uni-FACEF </h8>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
